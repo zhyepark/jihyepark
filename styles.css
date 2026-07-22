@@ -347,6 +347,15 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
 .project-cover--fashion > i { top: 0; right: 0; width: 43%; height: 64%; background: #B87355; box-shadow: -12px 12px 0 #FFF7F1, -24px 24px 0 #F3C7B1; }
 
 .project-art { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.project-art--swes { background: #fffaf3; }
+.swes-screen { position: absolute; overflow: hidden; background: white; border: 1px solid rgba(20,40,40,.1); border-radius: 8px; box-shadow: 0 18px 36px rgba(35,70,65,.12); transition: transform .3s ease, box-shadow .3s ease; }
+.home-page .swes-screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.swes-screen--main { z-index: 3; width: 72%; height: 72%; left: 14%; top: 12%; }
+.swes-screen--main img { object-position: 34% 4%; transform: scale(2); transform-origin: 34% 4%; }
+.swes-screen--back { z-index: 1; width: 38%; height: 44%; left: 5%; bottom: 7%; transform: rotate(-2deg); }
+.swes-screen--back img { object-position: 67% 10%; transform: scale(2.15); transform-origin: 67% 10%; }
+.swes-screen--middle { z-index: 2; width: 34%; height: 42%; right: 5%; top: 9%; transform: rotate(2deg); }
+.swes-screen--middle img { object-position: 90% 11%; transform: scale(2.1); transform-origin: 90% 11%; }
 .project-art--student-ai { display: grid; place-items: center; background: #f1efff; }
 .zine-paper-layer { position: absolute; width: 68%; height: 82%; background: #fff; border: 1px solid rgba(61,54,112,.1); box-shadow: 0 12px 24px rgba(64,55,125,.08); }
 .zine-paper-layer--back { transform: rotate(5deg) translate(5px, 1px); background: #dfe3ff; }
@@ -378,6 +387,9 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
   .home-page .project-card > a:hover .project-cover { transform: scale(1.018); filter: brightness(1.025); }
   .home-page .project-card > a:hover .project-arrow { transform: translateX(5px); }
   .home-page .project-card > a:hover .project-info h3 { transform: none; }
+  .home-page .project-card > a:hover .swes-screen--main { transform: translateY(-2px); box-shadow: 0 21px 40px rgba(35,70,65,.15); }
+  .home-page .project-card > a:hover .swes-screen--back { transform: translate(-3px, 2px) rotate(-2.5deg); }
+  .home-page .project-card > a:hover .swes-screen--middle { transform: translate(3px, -1px) rotate(2.5deg); }
   .home-page .project-card > a:hover .zine-cover-image { transform: rotate(-1deg) scale(1.01); box-shadow: 0 21px 38px rgba(64,55,125,.23); }
   .home-page .project-card > a:hover .mobile-mockup { transform: translateY(-3px); }
 }
@@ -416,6 +428,8 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
   .home-page .project-card > a:hover .project-arrow { transform: none; }
   .jewel-case::after { display: none; }
   .zine-paper-layer { transform: none; }
+  .swes-screen,
+  .home-page .project-card > a:hover .swes-screen { transform: none; }
   .zine-cover-image,
   .home-page .project-card > a:hover .zine-cover-image,
   .mobile-mockup,
