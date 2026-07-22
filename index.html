@@ -12,126 +12,117 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
-    <a class="brand" href="#top" aria-label="Jihye Park, home">JP<span class="brand-dot">.</span></a>
+    <a class="brand home-logo" href="index.html" aria-label="Jihye Park, home" aria-current="page">
+      <img src="assets/images/jp-logo.png" alt="Jihye Park logo">
+    </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="sr-only">Toggle navigation</span>
       <span></span><span></span>
     </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="#work">Work</a>
+      <a href="#work" aria-current="location">Work</a>
       <a href="about.html">About</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
+      <a href="assets/documents/jihye-park-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      <a href="https://www.linkedin.com/in/jihye-park840221" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:jihyep1@umbc.edu">Contact</a>
     </nav>
   </header>
 
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <p class="hero-kicker reveal">UX &amp; Product Designer</p>
+    <section class="home-intro" id="top" aria-labelledby="hero-title">
+      <p class="eyebrow reveal">UX &amp; Product Designer</p>
       <h1 id="hero-title" class="reveal">Jihye Park</h1>
-      <div class="hero-bottom reveal">
-        <p>I’m a UX &amp; Product Designer with a background in fashion design and merchandising. I combine user research, visual craft, and product thinking to create thoughtful digital experiences grounded in real human needs.</p>
-        <a class="circle-link" href="#work" aria-label="View selected work"><span>Explore<br>work</span><span aria-hidden="true">↘</span></a>
-      </div>
+      <p class="home-intro-primary reveal">I’m a UX and Product Designer with a background in fashion design and merchandising. I bring together user research, visual craft, and product thinking to create thoughtful digital experiences grounded in real human needs.</p>
+      <p class="home-intro-secondary reveal">Currently pursuing an M.S. in Human-Centered Computing at UMBC, I’m developing my practice through qualitative research, accessibility-focused design, and community-centered digital projects.</p>
     </section>
 
-    <section class="section work-section" id="work" aria-labelledby="work-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow">01 / Selected work</p>
-        <h2 id="work-title">A selection of work,<br>made with intention.</h2>
+    <section class="home-work" id="work" aria-labelledby="work-title">
+      <div class="home-work-heading reveal">
+        <h2 id="work-title">Selected Work</h2>
+        <p>03 Projects</p>
       </div>
 
       <div class="project-list">
         <article class="project-card project-card--sage reveal">
-          <a href="projects/case-study-one.html" aria-label="View Project One case study">
+          <a href="projects/case-study-one.html" aria-label="View Southwest Emergency Services case study">
             <div class="project-visual">
               <span class="project-number">01</span>
-              <div class="mock-window mock-window--dashboard" aria-hidden="true">
-                <div class="mock-sidebar"></div><div class="mock-content"><i></i><i></i><i></i></div>
+              <div class="jewel-case">
+                <span class="jewel-spine" aria-hidden="true"></span>
+                <div class="project-cover project-cover--ses" role="img" aria-label="Southwest Emergency Services project placeholder">
+                  <span>Access<br>for all.</span>
+                  <i aria-hidden="true"></i>
+                </div>
               </div>
             </div>
             <div class="project-info">
-              <div><p>Product design · Coming Soon</p><h3>Project One</h3></div>
+              <div>
+                <h3>Southwest Emergency Services</h3>
+                <p>UX research and accessibility recommendations for a nonprofit website redesign.</p>
+                <ul class="project-tags" aria-label="Project categories"><li>UX Research</li><li>Accessibility</li><li>Nonprofit</li></ul>
+              </div>
               <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
           </a>
         </article>
 
         <article class="project-card project-card--blue reveal">
-          <a href="projects/case-study-two.html" aria-label="View Project Two case study">
+          <a href="projects/case-study-two.html" aria-label="View Digital Mental Health Research case study">
             <div class="project-visual">
               <span class="project-number">02</span>
-              <div class="mock-phone" aria-hidden="true"><div class="phone-bar"></div><div class="phone-card"></div><div class="phone-lines"></div></div>
+              <div class="jewel-case">
+                <span class="jewel-spine" aria-hidden="true"></span>
+                <div class="project-cover project-cover--health" role="img" aria-label="Digital Mental Health Research project placeholder">
+                  <span>Listening<br>closely.</span>
+                  <i aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
             <div class="project-info">
-              <div><p>UX research · Coming Soon</p><h3>Project Two</h3></div>
+              <div>
+                <h3>Digital Mental Health Research</h3>
+                <p>Qualitative research exploring how digital tools can better support clinicians and underserved communities.</p>
+                <ul class="project-tags" aria-label="Project categories"><li>User Interviews</li><li>Health Tech</li><li>Research</li></ul>
+              </div>
               <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
           </a>
         </article>
 
         <article class="project-card project-card--clay reveal">
-          <a href="projects/case-study-three.html" aria-label="View Project Three case study">
+          <a href="projects/case-study-three.html" aria-label="View Fashion to Experience Design case study">
             <div class="project-visual">
               <span class="project-number">03</span>
-              <div class="mock-editorial" aria-hidden="true"><b>Form<br>follows<br>feeling.</b><span></span></div>
+              <div class="jewel-case">
+                <span class="jewel-spine" aria-hidden="true"></span>
+                <div class="project-cover project-cover--fashion" role="img" aria-label="Fashion to Experience Design project placeholder">
+                  <span>Form meets<br>experience.</span>
+                  <i aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
             <div class="project-info">
-              <div><p>Design systems · Coming Soon</p><h3>Project Three</h3></div>
+              <div>
+                <h3>Fashion to Experience Design</h3>
+                <p>A visual case study connecting consumer research, trend analysis, and product strategy with UX design.</p>
+                <ul class="project-tags" aria-label="Project categories"><li>Product Strategy</li><li>Research</li><li>Visual Design</li></ul>
+              </div>
               <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
           </a>
         </article>
       </div>
     </section>
-
-    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow">02 / Capabilities</p>
-        <h2 id="skills-title">How I shape<br>the work.</h2>
-      </div>
-      <div class="skills-list">
-        <div class="skill-row reveal"><span>01</span><h3>Product Strategy</h3><p>Problem framing · Product thinking · Prioritization</p></div>
-        <div class="skill-row reveal"><span>02</span><h3>UX Research</h3><p>User interviews · Synthesis · Journey mapping</p></div>
-        <div class="skill-row reveal"><span>03</span><h3>Experience Design</h3><p>Information architecture · Flows · Prototyping</p></div>
-        <div class="skill-row reveal"><span>04</span><h3>Visual Systems</h3><p>UI design · Design systems · Interaction details</p></div>
-      </div>
-    </section>
-
-    <section class="section resume-section" id="resume" aria-labelledby="resume-title">
-      <div class="resume-card reveal">
-        <div>
-          <p class="eyebrow">03 / Resume</p>
-          <h2 id="resume-title">The short version.</h2>
-        </div>
-        <div class="resume-copy">
-          <p>Experience, education, and the full story behind the work.</p>
-          <p class="coming-soon">Resume Coming Soon</p>
-        </div>
-        <span class="resume-mark" aria-hidden="true">↗</span>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <p class="eyebrow reveal">04 / Contact</p>
-      <div class="contact-grid">
-        <h2 id="contact-title" class="reveal">Have something<br>in mind? <em>Let’s talk.</em></h2>
-        <div class="contact-side reveal">
-          <p>For collaborations, opportunities, or a thoughtful conversation about design.</p>
-          <span class="text-link">Email · Coming Soon</span>
-          <p class="coming-soon">Contact details Coming Soon</p>
-        </div>
-      </div>
-      <footer class="footer">
-        <p>© <span data-year></span> Jihye Park</p>
-        <p>Designed with intention</p>
-        <a href="#top">Back to top ↑</a>
-      </footer>
-    </section>
   </main>
+
+  <footer class="home-footer footer">
+    <p>© <span data-year></span> Jihye Park</p>
+    <p>Ellicott City, Maryland</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
 </body>
 </html>
