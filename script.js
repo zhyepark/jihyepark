@@ -6,6 +6,12 @@ const year = document.querySelector('[data-year]');
 if (year) year.textContent = new Date().getFullYear();
 if (navigation && !navigation.id) navigation.id = 'site-nav';
 
+// Case studies belong to the Work area; expose that context to assistive technology.
+if (document.body.classList.contains('case-page') && navigation) {
+  const workLink = navigation.querySelector('a[href*="#work"]');
+  if (workLink) workLink.setAttribute('aria-current', 'page');
+}
+
 const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
