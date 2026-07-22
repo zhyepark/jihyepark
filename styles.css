@@ -21,8 +21,11 @@ button { color: inherit; font: inherit; }
 
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 24px var(--pad); transition: background .3s, padding .3s; }
 .site-header.is-scrolled { padding-top: 16px; padding-bottom: 16px; background: rgba(243,241,235,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(23,23,20,.08); }
-.brand { font: 600 22px/1 "Manrope", sans-serif; letter-spacing: -.06em; }
-.brand-dot { color: #7d8d70; }
+.site-logo { display: inline-flex; align-items: center; flex: 0 0 auto; padding: 0; border: 0; background: transparent; box-shadow: none; color: var(--ink); text-decoration: none; opacity: 1; transition: opacity 250ms ease, transform 250ms ease; }
+.site-logo-mark { display: block; width: clamp(56px, 4vw, 64px); height: auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.site-logo:hover { opacity: .82; transform: translateY(-2px); }
+.site-logo:active { transform: translateY(0) scale(.97); }
+.site-logo:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 4px; }
 .site-nav { display: flex; gap: clamp(24px, 3vw, 48px); font-size: 13px; font-weight: 500; }
 .site-nav a {
   position: relative;
@@ -295,26 +298,12 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 
 @media (min-width: 761px) and (max-width: 1100px) {
   .about-cd-ring { width: 190px; height: 190px; }
+  .site-logo-mark { width: 52px; }
 }
 
 /* Homepage — editorial project index */
 .home-page { overflow-x: hidden; }
 .home-page .site-header { position: relative; align-items: center; }
-.home-logo {
-  width: clamp(56px, 5vw, 64px);
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  line-height: 0;
-  opacity: .8;
-  transition: opacity 250ms ease, transform 250ms ease;
-}
-.home-logo img { display: block; width: 100%; height: auto; mix-blend-mode: darken; }
-.home-logo:hover { opacity: 1; transform: translateY(-2px); }
-.home-logo:active { transform: translateY(0) scale(.97); }
-.home-logo:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
 .home-page .site-nav { color: var(--muted); }
 .home-page .site-nav a:hover,
 .home-page .site-nav a[aria-current] { color: var(--ink); }
@@ -377,7 +366,7 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 
 @media (max-width: 760px) {
   .home-page .site-header { align-items: center; }
-  .home-logo { width: 56px; }
+  .site-logo-mark { width: 46px; }
   .home-page .site-nav { color: var(--ink); }
   .home-intro { padding-top: 30px; padding-bottom: 38px; }
   .home-intro h1 { margin: 12px 0 18px; font-size: clamp(40px, 12vw, 48px); }
@@ -390,8 +379,8 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-logo:hover,
-  .home-logo:active { transform: none; }
+  .site-logo:hover,
+  .site-logo:active { transform: none; }
   .home-page .project-card > a:hover,
   .home-page .project-card > a:active,
   .home-page .project-card > a:hover .jewel-case,
