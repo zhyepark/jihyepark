@@ -9,7 +9,9 @@ if (navigation && !navigation.id) navigation.id = 'site-nav';
 // Case studies belong to the Work area; expose that context to assistive technology.
 if (document.body.classList.contains('case-page') && navigation) {
   const workLink = navigation.querySelector('a[href*="#work"]');
+  const aboutLink = navigation.querySelector('a[href$="#about"]');
   if (workLink) workLink.setAttribute('aria-current', 'page');
+  if (aboutLink) aboutLink.href = '../about.html';
 }
 
 const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
