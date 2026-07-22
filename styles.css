@@ -299,9 +299,21 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 
 /* Homepage — editorial project index */
 .home-page { overflow-x: hidden; }
-.home-page .site-header { position: relative; align-items: flex-start; }
-.home-logo { width: clamp(56px, 5vw, 68px); border-radius: 4px; }
-.home-logo img { display: block; width: 100%; height: auto; }
+.home-page .site-header { position: relative; align-items: center; }
+.home-logo {
+  width: clamp(56px, 5vw, 64px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  line-height: 0;
+  opacity: .8;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.home-logo img { display: block; width: 100%; height: auto; mix-blend-mode: darken; }
+.home-logo:hover { opacity: 1; transform: translateY(-2px); }
+.home-logo:active { transform: translateY(0) scale(.97); }
 .home-logo:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
 .home-page .site-nav { color: var(--muted); }
 .home-page .site-nav a:hover,
@@ -316,18 +328,20 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .home-work-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 30px; margin-bottom: clamp(24px, 2.6vw, 36px); padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .home-work-heading h2 { margin: 0; font: 400 clamp(38px, 4vw, 58px)/1 Georgia, "Times New Roman", serif; letter-spacing: -.04em; }
 .home-work-heading p { margin: 0; color: var(--muted); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-.home-page .project-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.2vw, 54px); }
+.home-page .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); align-items: start; }
+.home-page .project-card { display: flex; flex-direction: column; min-width: 0; }
 .home-page .project-card:nth-child(2),
 .home-page .project-card:nth-child(3) { width: auto; margin: 0; grid-column: auto; }
-.home-page .project-card > a { height: 100%; }
-.home-page .project-visual { aspect-ratio: 1; overflow: visible; background: transparent; }
+.home-page .project-card > a { display: flex; flex-direction: column; width: 100%; min-width: 0; }
+.home-page .project-visual { position: relative; width: 100%; aspect-ratio: 1 / 1; min-height: 0; overflow: hidden; flex: 0 0 auto; display: block; background: transparent; }
+.home-page .project-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .home-page .project-visual::before { content: none; }
 .home-page .project-number { position: static; display: block; margin-bottom: 9px; color: rgba(23,23,20,.58); font-size: 10px; font-weight: 600; letter-spacing: .08em; }
 
-.jewel-case { position: relative; width: 100%; height: 100%; padding: clamp(13px, 1.25vw, 19px) clamp(13px, 1.25vw, 19px) clamp(13px, 1.25vw, 19px) clamp(22px, 2vw, 31px); overflow: hidden; border: 1px solid rgba(42,41,37,.28); background: rgba(255,255,255,.2); box-shadow: inset 0 0 0 3px rgba(255,255,255,.32), inset 0 0 0 4px rgba(72,70,64,.08); transition: transform .28s ease, box-shadow .28s ease; }
+.home-page .project-visual > .jewel-case { position: absolute; inset: 0; width: auto; height: auto; padding: clamp(13px, 1.25vw, 19px) clamp(13px, 1.25vw, 19px) clamp(13px, 1.25vw, 19px) clamp(22px, 2vw, 31px); overflow: hidden; border: 1px solid rgba(42,41,37,.28); background: rgba(255,255,255,.2); box-shadow: inset 0 0 0 3px rgba(255,255,255,.32), inset 0 0 0 4px rgba(72,70,64,.08); transition: transform .28s ease, box-shadow .28s ease; }
 .jewel-case::after { content: ""; position: absolute; z-index: 4; top: -35%; bottom: -35%; left: -52%; width: 35%; pointer-events: none; background: linear-gradient(110deg, transparent, rgba(255,255,255,.38), rgba(255,255,255,.08), transparent); transform: skewX(-12deg); transition: transform .62s cubic-bezier(.2,.65,.3,1); }
 .jewel-spine { position: absolute; z-index: 3; inset: 5px auto 5px 6px; width: 12px; border-right: 1px solid rgba(42,41,37,.2); border-left: 1px solid rgba(255,255,255,.54); box-shadow: 3px 0 0 rgba(42,41,37,.05); }
-.project-cover { position: relative; width: 100%; height: 100%; overflow: hidden; border: 1px solid rgba(23,23,20,.16); transition: transform .3s ease; }
+.project-cover { position: relative; width: 100%; height: 100%; display: grid; align-items: center; justify-items: center; overflow: hidden; border: 1px solid rgba(23,23,20,.16); transition: transform .3s ease; }
 .project-cover > span { position: absolute; z-index: 2; left: 12%; bottom: 11%; font: 400 clamp(20px, 2.1vw, 34px)/.94 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
 .project-cover > i { position: absolute; display: block; }
 .project-cover--ses { background: #96a58c; box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
@@ -357,7 +371,7 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .home-page .project-card > a:active { transform: translateY(-1px) scale(.98); filter: drop-shadow(0 4px 5px rgba(23,23,20,.08)); }
 
 @media (max-width: 1050px) and (min-width: 761px) {
-  .home-page .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-page .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-intro-primary { max-width: 520px; }
 }
 
@@ -370,12 +384,14 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
   .home-intro-primary { font-size: 17px; }
   .home-intro-secondary { font-size: 13px; }
   .home-work { padding-top: 26px; }
-  .home-page .project-list { grid-template-columns: 1fr; gap: 62px; }
+  .home-page .project-grid { grid-template-columns: 1fr; gap: 62px; }
   .home-page .project-info { min-height: 0; }
   .project-cover > span { font-size: clamp(27px, 9vw, 38px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-logo:hover,
+  .home-logo:active { transform: none; }
   .home-page .project-card > a:hover,
   .home-page .project-card > a:active,
   .home-page .project-card > a:hover .jewel-case,
