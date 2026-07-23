@@ -147,12 +147,12 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
 
 /* Dedicated about page */
 .about-page { background: var(--paper); }
-.about-hero { min-height: 100svh; display: grid; grid-template-columns: minmax(280px, .85fr) minmax(420px, 1.15fr); gap: clamp(50px, 9vw, 150px); align-items: center; padding: clamp(135px, 17vw, 210px) var(--pad) clamp(90px, 11vw, 160px); }
-.about-cd-portrait { align-self: start; position: sticky; top: 120px; display: grid; place-items: center; padding: clamp(36px, 6vw, 90px); }
+.about-hero { min-height: calc(100svh - 92px); display: grid; grid-template-columns: minmax(260px, .85fr) minmax(390px, 1.15fr); gap: clamp(44px, 8vw, 130px); align-items: center; padding: clamp(110px, 12vw, 155px) var(--pad) clamp(48px, 6vw, 82px); }
+.about-cd-portrait { align-self: center; position: sticky; top: 120px; display: grid; place-items: center; padding: clamp(24px, 4vw, 58px); }
 .about-cd-ring {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: clamp(170px, 15vw, 210px);
+  height: clamp(170px, 15vw, 210px);
   padding: 10px;
   overflow: hidden;
   border: 1px solid rgba(23, 23, 20, .24);
@@ -181,9 +181,9 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
 .about-cd-ring:hover { transform: translateY(-3px) rotate(1deg); box-shadow: 0 22px 36px rgba(23,23,20,.18), inset 0 0 0 4px rgba(255,255,255,.3), inset 0 0 0 7px rgba(56,55,51,.08); }
 .about-cd-ring:hover::before { transform: rotate(7deg); }
 .about-cd-ring:active { transform: scale(.98); }
-.about-story h1 { margin: 55px 0 60px; font-family: var(--font-display); font-size: clamp(50px, 6.5vw, 96px); font-weight: 400; line-height: .98; letter-spacing: -.025em; }
-.about-biography { max-width: 720px; }
-.about-biography p { margin: 0 0 28px; color: var(--muted); font-size: clamp(17px, 1.4vw, 20px); line-height: 1.7; }
+.about-story h1 { margin: 36px 0 34px; font-family: var(--font-display); font-size: clamp(42px, 4.6vw, 68px); font-weight: 400; line-height: .98; letter-spacing: -.025em; }
+.about-biography { max-width: 650px; }
+.about-biography p { margin: 0 0 18px; color: var(--muted); font-size: clamp(14px, 1.05vw, 16px); line-height: 1.65; }
 .about-values { background: var(--paper-deep); }
 .about-values .skill-row { grid-template-columns: 60px minmax(220px, .75fr) 1.25fr; }
 .about-links { display: grid; grid-template-columns: repeat(2, 1fr); padding: clamp(70px, 9vw, 120px) var(--pad); border-top: 1px solid var(--line); }
@@ -191,7 +191,11 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
 .about-links a { transition: color .25s, transform .25s; }
 .about-links a:hover { color: var(--muted); transform: translateY(-2px); }
 .about-links a:focus-visible { outline: 2px solid var(--ink); outline-offset: 7px; }
-.about-footer { margin: 0 var(--pad); padding: 28px 0 35px; }
+.about-footer { margin: 0 var(--pad); padding: 24px 0 28px; color: var(--muted); font-size: 13px; text-transform: none; letter-spacing: 0; }
+.about-footer-links { display: flex; align-items: center; gap: 14px; }
+.about-footer a { transition: color .25s ease, transform .25s ease; }
+.about-footer a:hover { color: var(--ink); transform: translateY(-1px); }
+.about-footer a:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
 
 .skills-section { padding-bottom: clamp(110px, 16vw, 220px); }
 .skills-list { border-top: 1px solid var(--line); }
@@ -273,14 +277,16 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
   .case-hero p { margin-left: 0; }
   .case-banner { min-height: 75vw; }
   .case-content-grid { gap: 55px; }
-  .about-hero { grid-template-columns: 1fr; gap: 65px; padding-top: 125px; }
+  .about-hero { grid-template-columns: 1fr; gap: 38px; min-height: 0; padding-top: 112px; padding-bottom: 46px; }
   .about-cd-portrait { position: static; padding: 30px; }
   .about-cd-ring { width: 160px; height: 160px; padding: 8px; }
-  .about-story h1 { margin: 45px 0; }
+  .about-story h1 { margin: 32px 0 28px; }
   .about-values .skill-row { grid-template-columns: 35px 1fr; }
   .about-values .skill-row p { grid-column: 2; }
   .about-links { grid-template-columns: 1fr; gap: 40px; }
   .about-links > * { margin-right: 0; }
+  .about-footer { align-items: flex-start; }
+  .about-footer-links { flex-wrap: wrap; justify-content: flex-end; row-gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
