@@ -38,6 +38,54 @@ if (menuButton && navigation) {
   });
 }
 
+
+const indicator = document.querySelector('.project-indicator');
+const brandLockup = document.querySelector('.brand-lockup');
+const logoLink = brandLockup?.querySelector('.site-logo');
+const projectCards = document.querySelectorAll('.project-card[data-indicator-color]');
+const defaultIndicatorColor = '#b8b8b2';
+
+if (indicator) {
+  indicator.style.setProperty('--indicator-color', defaultIndicatorColor);
+  indicator.addEventListener('animationend', event => {
+    if (event.animationName === 'indicator-intro') {
+      indicator.classList.add('has-intro-complete');
+    }
+  }, { once: true });
+}
+
+if (brandLockup && logoLink) {
+  const setLogoActive = () => brandLockup.classList.add('is-logo-active');
+  const unsetLogoActive = () => brandLockup.classList.remove('is-logo-active');
+
+  logoLink.addEventListener('mouseenter', setLogoActive);
+  logoLink.addEventListener('mouseleave', unsetLogoActive);
+  logoLink.addEventListener('focus', setLogoActive);
+  logoLink.addEventListener('blur', unsetLogoActive);
+}
+
+if (indicator && projectCards.length) {
+  const activateIndicator = card => {
+    const color = card.dataset.indicatorColor || defaultIndicatorColor;
+    indicator.style.setProperty('--indicator-color', color);
+    indicator.classList.add('is-project-active');
+  };
+
+  const resetIndicator = () => {
+    indicator.style.setProperty('--indicator-color', defaultIndicatorColor);
+    indicator.classList.remove('is-project-active');
+  };
+
+  projectCards.forEach(card => {
+    card.addEventListener('mouseenter', () => activateIndicator(card));
+    card.addEventListener('mouseleave', resetIndicator);
+    card.addEventListener('focusin', () => activateIndicator(card));
+    card.addEventListener('focusout', event => {
+      if (!card.contains(event.relatedTarget)) resetIndicator();
+    });
+  });
+}
+
 const revealItems = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const observer = new IntersectionObserver(entries => {
