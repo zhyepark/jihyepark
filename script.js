@@ -39,49 +39,88 @@ if (menuButton && navigation) {
 }
 
 
-const indicator = document.querySelector('.project-indicator');
 const brandLockup = document.querySelector('.brand-lockup');
-const logoLink = brandLockup?.querySelector('.site-logo');
-const projectCards = document.querySelectorAll('.project-card[data-indicator-color]');
-const defaultIndicatorColor = '#b8b8b2';
+const logo = brandLockup?.querySelector('.site-logo');
+const orb = brandLockup?.querySelector('.cursor-orb');
+const projectCards = document.querySelectorAll('.project-card[data-orb-color]');
+const defaultOrbColor = '#B8B8B2';
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const coarsePointerQuery = window.matchMedia('(pointer: coarse)');
+let orbFrame = null;
+let orbX = 0;
+let orbY = 0;
 
-if (indicator) {
-  indicator.style.setProperty('--indicator-color', defaultIndicatorColor);
-  indicator.addEventListener('animationend', event => {
-    if (event.animationName === 'indicator-intro') {
-      indicator.classList.add('has-intro-complete');
-    }
-  }, { once: true });
-}
+const setOrbColor = color => {
+  orb?.style.setProperty('--orb-color', color || defaultOrbColor);
+};
 
-if (brandLockup && logoLink) {
+const setOrbOffset = (x = 0, y = 0) => {
+  if (!orb) return;
+  orb.style.setProperty('--orb-x', `${x.toFixed(2)}px`);
+  orb.style.setProperty('--orb-y', `${y.toFixed(2)}px`);
+};
+
+const scheduleOrbOffset = (x, y) => {
+  orbX = x;
+  orbY = y;
+  if (orbFrame) return;
+  orbFrame = window.requestAnimationFrame(() => {
+    setOrbOffset(orbX, orbY);
+    orbFrame = null;
+  });
+};
+
+const activateProjectOrb = card => {
+  setOrbColor(card.dataset.orbColor);
+  orb?.classList.add('is-project-active');
+};
+
+const resetProjectOrb = () => {
+  setOrbColor(defaultOrbColor);
+  orb?.classList.remove('is-project-active');
+};
+
+if (orb) setOrbColor(defaultOrbColor);
+
+if (brandLockup && logo) {
   const setLogoActive = () => brandLockup.classList.add('is-logo-active');
   const unsetLogoActive = () => brandLockup.classList.remove('is-logo-active');
 
-  logoLink.addEventListener('mouseenter', setLogoActive);
-  logoLink.addEventListener('mouseleave', unsetLogoActive);
-  logoLink.addEventListener('focus', setLogoActive);
-  logoLink.addEventListener('blur', unsetLogoActive);
+  logo.addEventListener('mouseenter', setLogoActive);
+  logo.addEventListener('mouseleave', unsetLogoActive);
+  logo.addEventListener('focus', setLogoActive);
+  logo.addEventListener('blur', unsetLogoActive);
+
+  const canTrackPointer = () => !reducedMotionQuery.matches && !coarsePointerQuery.matches;
+
+  brandLockup.addEventListener('pointermove', event => {
+    if (!canTrackPointer()) return;
+    const rect = brandLockup.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 6;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 6;
+    scheduleOrbOffset(Math.max(-3, Math.min(3, x)), Math.max(-3, Math.min(3, y)));
+  });
+
+  brandLockup.addEventListener('pointerleave', () => {
+    if (orbFrame) {
+      window.cancelAnimationFrame(orbFrame);
+      orbFrame = null;
+    }
+    setOrbOffset(0, 0);
+  });
+
+  reducedMotionQuery.addEventListener?.('change', event => {
+    if (event.matches) setOrbOffset(0, 0);
+  });
 }
 
-if (indicator && projectCards.length) {
-  const activateIndicator = card => {
-    const color = card.dataset.indicatorColor || defaultIndicatorColor;
-    indicator.style.setProperty('--indicator-color', color);
-    indicator.classList.add('is-project-active');
-  };
-
-  const resetIndicator = () => {
-    indicator.style.setProperty('--indicator-color', defaultIndicatorColor);
-    indicator.classList.remove('is-project-active');
-  };
-
+if (orb && projectCards.length) {
   projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => activateIndicator(card));
-    card.addEventListener('mouseleave', resetIndicator);
-    card.addEventListener('focusin', () => activateIndicator(card));
+    card.addEventListener('mouseenter', () => activateProjectOrb(card));
+    card.addEventListener('mouseleave', resetProjectOrb);
+    card.addEventListener('focusin', () => activateProjectOrb(card));
     card.addEventListener('focusout', event => {
-      if (!card.contains(event.relatedTarget)) resetIndicator();
+      if (!card.contains(event.relatedTarget)) resetProjectOrb();
     });
   });
 }
