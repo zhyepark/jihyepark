@@ -613,6 +613,26 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
 .swes-process-grid figure,
 .swes-screen-gallery figure { margin: 0; }
 .swes-persona-grid figure { padding: clamp(12px, 1.6vw, 20px); background: #fff; border: 1px solid rgba(17,24,39,.1); box-shadow: 0 16px 36px rgba(17,24,39,.07); }
+.swes-journey-section { padding: clamp(100px, 13vw, 180px) var(--pad); background: #eef4f0; }
+.swes-journey-intro { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(260px,.7fr); gap: clamp(30px, 7vw, 110px); align-items: end; max-width: 1180px; margin: 0 auto clamp(70px, 9vw, 120px); }
+.swes-journey-intro .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
+.swes-journey-intro h2 { margin: 0; font-size: clamp(48px, 6vw, 86px); }
+.swes-journey-intro > p:last-child { margin: 0 0 8px; color: #51645e; font-size: 16px; line-height: 1.7; }
+.swes-journey { max-width: 1180px; margin: 0 auto clamp(78px, 10vw, 135px); }
+.swes-journey:last-child { margin-bottom: 0; }
+.swes-journey__header { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,.8fr); gap: 10px clamp(28px, 6vw, 90px); align-items: end; padding-bottom: 28px; border-bottom: 1px solid rgba(28,64,52,.24); }
+.swes-journey__header p { grid-column: 1 / -1; margin: 0; color: var(--swes-green); font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.swes-journey__header h3 { margin: 0; font-family: var(--font-display); font-size: clamp(34px, 4vw, 58px); font-weight: 400; line-height: 1; }
+.swes-journey__header span { color: #51645e; font-size: 14px; line-height: 1.55; }
+.swes-journey__track { display: grid; grid-template-columns: repeat(5, minmax(190px,1fr)); overflow-x: auto; border-bottom: 1px solid rgba(28,64,52,.24); scrollbar-color: rgba(28,64,52,.32) transparent; }
+.swes-journey__track > section { min-width: 0; padding: 30px 22px 34px; border-right: 1px solid rgba(28,64,52,.18); }
+.swes-journey__track > section:first-child { border-left: 1px solid rgba(28,64,52,.18); }
+.swes-journey__track b { display: grid; place-items: center; width: 30px; height: 30px; color: #fff; background: var(--swes-green); border-radius: 50%; font-size: 10px; }
+.swes-journey__track h4 { min-height: 50px; margin: 22px 0 25px; font-size: 20px; font-weight: 500; line-height: 1.15; }
+.swes-journey__track dl { margin: 0; }
+.swes-journey__track dt { margin-top: 19px; color: var(--swes-green); font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.swes-journey__track dt:first-child { margin-top: 0; }
+.swes-journey__track dd { margin: 6px 0 0; color: #4f5c57; font-size: 12px; line-height: 1.55; }
 .swes-hmw-list { margin-top: clamp(54px, 7vw, 92px); border-top: 1px solid rgba(255,255,255,.22); }
 .swes-hmw-list div { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 35px; padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,.22); }
 .swes-hmw-list span { color: rgba(255,255,255,.6); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
@@ -657,6 +677,10 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
   .swes-case-section__label { position: static; }
   .swes-case-stat-grid { grid-template-columns: 1fr; }
   .swes-case-stat { min-height: 0; }
+  .swes-journey-intro,
+  .swes-journey__header { grid-template-columns: 1fr; }
+  .swes-journey-intro .eyebrow,
+  .swes-journey__header p { grid-column: auto; }
   .swes-solution__intro { grid-template-columns: 1fr; }
   .swes-solution__intro .eyebrow { grid-column: auto; }
 }
@@ -673,6 +697,10 @@ em { font-family: var(--font-display); font-weight: 400; font-style: italic; }
   .swes-finding-grid article:nth-child(odd),
   .swes-finding-grid article:nth-child(even) { min-height: 0; padding: 30px 0; border-right: 0; }
   .swes-hmw-list div { grid-template-columns: 1fr; gap: 12px; }
+  .swes-journey__track { grid-template-columns: 1fr; overflow-x: visible; border-bottom: 0; }
+  .swes-journey__track > section,
+  .swes-journey__track > section:first-child { padding: 28px 0; border-right: 0; border-left: 0; border-bottom: 1px solid rgba(28,64,52,.18); }
+  .swes-journey__track h4 { min-height: 0; margin: 18px 0 22px; }
   .swes-ia-map { overflow-x: visible; }
   .swes-ia-home { margin-bottom: 28px; }
   .swes-ia-home::after,
