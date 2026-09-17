@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Project One case study by Jihye Park.">
-  <title>Project One — Jihye Park</title>
+  <meta name="description" content="A research-led website redesign for Southwest Emergency Services, helping donors, volunteers, and neighbors find clear paths to give and receive support.">
+  <title>Southwest Emergency Services — Jihye Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <script src="../script.js" defer></script>
 </head>
-<body class="case-page">
+<body class="case-page swes-case-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header case-header" data-header>
     <div class="brand-lockup">
@@ -35,9 +35,137 @@
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
   </header>
   <main id="main">
-    <section class="case-hero"><p class="eyebrow reveal">Case study 01 · Product design</p><h1 class="reveal">Project One</h1><p class="reveal">A complete project story—including the challenge, process, and outcome—is Coming Soon.</p></section>
-    <div class="case-banner case-banner--sage" aria-label="Project One placeholder image"><span>Coming Soon</span></div>
-    <section class="case-content"><div class="case-content-grid"><h2>Overview</h2><div class="case-copy"><p>Project details are Coming Soon.</p><p>This case study will share the context, design process, key decisions, and final experience. No project metrics have been included.</p></div></div><a class="case-next" href="case-study-two.html"><span>Next project</span><span>Project Two ↗</span></a></section>
+    <section class="swes-case-hero" aria-labelledby="swes-title">
+      <div class="swes-case-hero__copy">
+        <p class="eyebrow reveal">Case study 01 · UX research &amp; product design</p>
+        <h1 id="swes-title" class="reveal">Southwest Emergency Services</h1>
+        <p class="swes-case-deck reveal">Redesigning a community nonprofit website so donors, volunteers, and neighbors seeking assistance can act with confidence.</p>
+      </div>
+      <dl class="swes-case-meta reveal">
+        <div><dt>Role</dt><dd>UX Researcher &amp; Designer</dd></div>
+        <div><dt>Timeline</dt><dd>February–May 2026</dd></div>
+        <div><dt>Methods</dt><dd>Survey, interviews, IA, wireframes, prototyping</dd></div>
+        <div><dt>Context</dt><dd>Independent study · Community nonprofit</dd></div>
+      </dl>
+    </section>
+
+    <figure class="swes-case-cover reveal">
+      <img src="../assets/images/swes/final-homepage.jpg" alt="Southwest Emergency Services redesigned homepage showing donation, help, volunteer, and community information" width="1400" height="3171">
+    </figure>
+
+    <nav class="swes-case-index" aria-label="Case study sections">
+      <a href="#overview">Overview</a>
+      <a href="#research">Research</a>
+      <a href="#definition">Definition</a>
+      <a href="#design">Design</a>
+      <a href="#reflection">Reflection</a>
+    </nav>
+
+    <section class="swes-case-section" id="overview" aria-labelledby="overview-title">
+      <div class="swes-case-section__label"><span>01</span><p>Overview</p></div>
+      <div class="swes-case-section__body">
+        <h2 id="overview-title">A clearer digital front door for community support.</h2>
+        <div class="swes-case-columns">
+          <p>Southwest Emergency Services (SWES) is a Christian-based nonprofit serving individuals and families through food, personal-care items, and financial assistance. Its existing website supported basic navigation, but it did not fully support the actions people came to complete.</p>
+          <p>The project focused on a research-led website redesign. The goal was to make donation, assistance, and volunteer information easier to find while creating a foundation for future digital giving and content management.</p>
+        </div>
+        <div class="swes-case-highlight">
+          <p class="eyebrow">Core challenge</p>
+          <blockquote>How might we help each audience quickly understand where to go, what they need, and how to take the next step?</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="swes-case-section swes-case-section--tint" id="research" aria-labelledby="research-title">
+      <div class="swes-case-section__label"><span>02</span><p>Research</p></div>
+      <div class="swes-case-section__body">
+        <h2 id="research-title">Listening across the SWES ecosystem.</h2>
+        <p class="swes-case-lead">I combined a stakeholder survey, three semi-structured interviews, heuristic review, and organizational analysis to understand both visitor needs and internal constraints.</p>
+        <div class="swes-case-stat-grid">
+          <div class="swes-case-stat"><strong>90.9%</strong><span>of survey respondents preferred online donation methods.</span></div>
+          <div class="swes-case-stat"><strong>3</strong><span>interviews included volunteers, donors, and a potential user.</span></div>
+          <div class="swes-case-stat"><strong>3</strong><span>primary audiences emerged: people seeking help, donors, and volunteers.</span></div>
+        </div>
+        <div class="swes-finding-grid">
+          <article><span>01</span><h3>Giving was disconnected</h3><p>There was no clear online donation path, and missing tax-deductible information reduced confidence.</p></article>
+          <article><span>02</span><h3>Essential details were hard to find</h3><p>Visitors needed clearer eligibility, hours, location, and next-step information for assistance.</p></article>
+          <article><span>03</span><h3>Volunteer pathways lacked clarity</h3><p>Roles, requirements, schedules, and application steps were too general or absent.</p></article>
+          <article><span>04</span><h3>Maintenance mattered too</h3><p>Internal stakeholders described difficulty editing and updating content with the existing tools.</p></article>
+        </div>
+        <figure class="swes-wide-figure">
+          <img src="../assets/images/swes/swot-analysis.jpg" alt="SWOT analysis of Southwest Emergency Services, covering organizational strengths, website weaknesses, digital opportunities, and risks" loading="lazy" decoding="async" width="1600" height="1203">
+          <figcaption>Organizational context helped balance visitor needs with nonprofit constraints.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="swes-case-section" aria-labelledby="audiences-title">
+      <div class="swes-case-section__label"><span>03</span><p>Audiences</p></div>
+      <div class="swes-case-section__body swes-case-section__body--wide">
+        <h2 id="audiences-title">Three needs, one connected experience.</h2>
+        <p class="swes-case-lead">The personas translated research patterns into concrete goals: get help without uncertainty, donate without unnecessary friction, and volunteer without guessing.</p>
+        <div class="swes-persona-grid">
+          <figure><img src="../assets/images/swes/persona-assistance.jpg" alt="Persona for María Rodríguez, a community member seeking clear food and financial assistance information" loading="lazy" decoding="async" width="1600" height="1204"><figcaption>Person seeking assistance</figcaption></figure>
+          <figure><img src="../assets/images/swes/persona-donor.jpg" alt="Persona for Peggy Wilson, a long-term supporter seeking a secure and simple online donation experience" loading="lazy" decoding="async" width="1600" height="1204"><figcaption>Donor</figcaption></figure>
+          <figure><img src="../assets/images/swes/persona-volunteer.jpg" alt="Persona for Sarah Kim, a potential volunteer looking for roles, requirements, and online registration" loading="lazy" decoding="async" width="1600" height="1204"><figcaption>Potential volunteer</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="swes-case-section swes-case-section--dark" id="definition" aria-labelledby="definition-title">
+      <div class="swes-case-section__label"><span>04</span><p>Definition</p></div>
+      <div class="swes-case-section__body">
+        <h2 id="definition-title">From scattered information to task-based pathways.</h2>
+        <p class="swes-case-lead">The research showed that the central problem was not navigation alone. Missing functionality, incomplete information, and unclear content structure prevented people from completing important tasks.</p>
+        <div class="swes-hmw-list">
+          <div><span>Donate</span><p>How might we make giving easy, accessible, and trustworthy?</p></div>
+          <div><span>Get help</span><p>How might we make service information clear and easy to access?</p></div>
+          <div><span>Volunteer</span><p>How might we communicate opportunities, requirements, and next steps?</p></div>
+          <div><span>Navigate</span><p>How might we improve clarity without adding complexity?</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="swes-case-section" id="design" aria-labelledby="design-title">
+      <div class="swes-case-section__label"><span>05</span><p>Design process</p></div>
+      <div class="swes-case-section__body swes-case-section__body--wide">
+        <h2 id="design-title">Structure first, then visual expression.</h2>
+        <p class="swes-case-lead">I reorganized the experience around five plain-language destinations—Give Help, Get Help, My Story, About, and Contact—then explored the core donation and volunteer journeys in low fidelity.</p>
+        <div class="swes-process-grid">
+          <figure class="swes-process-grid__wide"><img src="../assets/images/swes/information-architecture.jpg" alt="Information architecture mapping the redesigned SWES website sections and pages" loading="lazy" decoding="async" width="1400" height="1812"><figcaption>Information architecture</figcaption></figure>
+          <figure><img src="../assets/images/swes/low-fi-homepage.jpg" alt="Low-fidelity SWES homepage wireframe" loading="lazy" decoding="async" width="1400" height="1812"><figcaption>Homepage exploration</figcaption></figure>
+          <figure><img src="../assets/images/swes/low-fi-donation.jpg" alt="Low-fidelity online donation flow wireframe" loading="lazy" decoding="async" width="1400" height="1812"><figcaption>Donation flow</figcaption></figure>
+          <figure><img src="../assets/images/swes/low-fi-volunteer.jpg" alt="Low-fidelity volunteer opportunities page wireframe" loading="lazy" decoding="async" width="1400" height="1812"><figcaption>Volunteer pathway</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="swes-solution" aria-labelledby="solution-title">
+      <div class="swes-solution__intro">
+        <p class="eyebrow">High-fidelity direction</p>
+        <h2 id="solution-title">A calm, welcoming system built around action.</h2>
+        <p>The visual system pairs warm community photography with clear calls to action, generous spacing, and consistent information modules. The screens below represent the current design direction; content marked as placeholder remains subject to stakeholder review.</p>
+      </div>
+      <div class="swes-screen-gallery">
+        <figure class="swes-screen-gallery__feature"><img src="../assets/images/swes/final-homepage.jpg" alt="High-fidelity SWES homepage concept" loading="lazy" decoding="async" width="1400" height="3171"><figcaption>Homepage · Direct paths to donate, receive help, and volunteer</figcaption></figure>
+        <figure><img src="../assets/images/swes/final-give-help.jpg" alt="High-fidelity Give Help page with donation and volunteer pathways" loading="lazy" decoding="async" width="1400" height="4375"><figcaption>Give Help · Financial gifts, volunteering, and in-kind support</figcaption></figure>
+        <figure><img src="../assets/images/swes/final-get-help.jpg" alt="High-fidelity Get Help page explaining food and financial assistance" loading="lazy" decoding="async" width="1400" height="1887"><figcaption>Get Help · Two clear support pathways</figcaption></figure>
+        <figure><img src="../assets/images/swes/final-about.jpg" alt="High-fidelity About SWES page with mission, history, and partners" loading="lazy" decoding="async" width="1400" height="3669"><figcaption>About · Mission, history, people, and partners</figcaption></figure>
+        <figure><img src="../assets/images/swes/final-contact.jpg" alt="High-fidelity Contact page with address, hours, phone, email, and map information" loading="lazy" decoding="async" width="1400" height="2459"><figcaption>Contact · Location, hours, and contact methods</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="swes-case-section swes-case-section--tint" id="reflection" aria-labelledby="reflection-title">
+      <div class="swes-case-section__label"><span>06</span><p>Reflection</p></div>
+      <div class="swes-case-section__body">
+        <h2 id="reflection-title">Designing for a mission also means designing for its constraints.</h2>
+        <div class="swes-case-columns">
+          <p>This project reinforced that nonprofit UX problems are often rooted in information architecture, trust, task completion, and communication—not visual design alone. Research helped move the work beyond assumptions and toward the needs of people seeking assistance, donors, volunteers, and administrators.</p>
+          <p>It also highlighted the importance of accessibility and simplicity for an audience with varied digital confidence. The next phase is continued stakeholder iteration, refinement of content and flows, and implementation in WordPress.</p>
+        </div>
+        <a class="case-next" href="student-driven-ai.html"><span>Next project</span><span>Student-Driven AI Policy ↗</span></a>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">
     <div class="footer-inner">
